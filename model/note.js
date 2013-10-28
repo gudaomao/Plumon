@@ -6,25 +6,34 @@ function Note(title,codes){
 }
 
 Note.prototype.save = function(callback){
+    console.log('start save');
+    var note = {
+        title:this.title,
+        codes:this.codes,
+        time: new Date().getTime(),
+        user:'LLS'
+    };
     mongodb.open(function(err,db){
         if(err){
-            callback(err);
+            console.log('err:'+err);
+            return callback(err);
         }
+        console.log('db openned');
         db.collection('notes',function(err,collection){
             if(err){
                 mongodb.close();
-                callback(err);
+                return callback(err);
             }
-            var doc = {
-                title: this.title,
-                codes: this.codes
-            };
-            collection.insert({},{safe:true},function(err,result){
+            console.log('collection:notes');
+            console.log('title:'+note.title);
+            console.log('content:'+note.codes);
+
+            collection.insert(note,{safe:true},function(err,result){
                 mongodb.close();
                 if(err){
-                    callback(err);
+                    return callback(err);
                 }
-                callback(null);
+                return callback(null);
             });
         });
     });
@@ -53,6 +62,41 @@ Note.get = function(title,callback){
     });
 }
 
+Note.getLastOne = function(callback){
+    mongodb.open(function(err,db){
+        if(err){
+            return callback(err);
+        }
+        db.collection('notes',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err);
+            }
+            collection.findOne({
+                user:"LLS"
+            },{
+                sort:[['time',-1]]
+            },function(err,doc){
+                mongodb.close();
+                if(err){
+                    return callback(err);
+                }
+                return callback(doc);
+            })
+//            collection.findOne({
+//
+//            }).sort({
+//                    time:-1
+//                },function(err,doc){
+//                mongodb.close();
+//                if(err){
+//                    return callback(err);
+//                }
+//                return callback(null,doc);
+//            });
+        });
+    });
+}
 Note.getTen = function(page,callback){
     mongodb.open(function(err,db){
         if(err){
@@ -63,16 +107,12 @@ Note.getTen = function(page,callback){
                 mongodb.close();
                 return callback(err);
             }
-            collection.find({
-
-            },{
-                limit:10,
-                skip: page*10
-            })
-            .sort(function(){
-                time:-1
-            })
+            console.log('finding');
+            collection.find({})
             .toArray(function(err,docs){
+                    console.log('get ten occure error:');
+                    console.log(err);
+                console.log(docs);
                 mongodb.close();
                 if(err){
                     return callback(err);

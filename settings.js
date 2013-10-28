@@ -1,5 +1,5 @@
 module.exports = {
     cookieSecret: 'plumon',
-    db: 'blog',
+    db: 'plumon',
     host: 'localhost'
 };

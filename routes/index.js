@@ -4,12 +4,31 @@ module.exports = function(app){
         res.render('index',{});
     });
     app.get('/getten',function(req,res){
-        var page = parseInt(req.query.p);
+        var p=req.param('p');
+        var page = parseInt(p);
         Note.getTen(page,function(err,docs){
+            var d = {msg:err,docs:docs};
+            res.send(d);
+        });
+    });
+    app.get('/getone',function(req,res){
+        Note.getLastOne(function(err,doc){
+            var r ={
+                errmsg:err,
+                doc:doc
+            };
+            res.send(r);
+        });
+    });
+    app.post('/save',function(req,res){
+        var note = new Note(req.param('title'),req.param('codes'));
+        console.log('route-title:'+note.title);
+        console.log('route-content:'+note.codes);
+        note.save(function(err){
             if(err){
-                res.send('出现错误:'+err);
+                res.send(err);
             }
-            res.send(docs);
+            res.send('');
         })
     })
 }
