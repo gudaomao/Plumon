@@ -8,10 +8,52 @@
         <script type="text/javascript" src="/javascripts/m.js"></script>
     </head>
     <body>
-        <div>
-            Pluma!
-        </div>
-        <div id="notelist">
+        <div class="mycontainer">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <ul>
+                    <li>Plumon!</li>
+                </ul>
+            </nav>
+            <div class="leftbox">
+                <div class="newnotebuttonrow">
+                    <button class="btn-info btn-sm" id="newplumon">新的Plumon!</button>
+                </div>
+                <div class="newnotebox">
+                    <div class="center">
+                        <input type="text" id="tbtitle" placeholder="输入代码段的标题" /></div>
+                    <div class="center">
+                        <textarea id="tbcontent" placeholder="输入代码段的内容"></textarea>
+                    </div>
+                    <div class="right">
+                        <input type="submit" value="提交"id="btnsave" class="btn btn-success" />
+                        <button id="btncancel" class="btn btn-info">取消</button>
+                    </div>
+                </div>
+                <div id="notelist">
+                    <% docs.forEach(function(p,index){ %>
+                        <div class="note">
+                            <div class="noteleft">
+                                <div class="userinfo"><img src="/images/avatar/bubbles2.png" /></div>
+                            </div>
+                            <div class="noteright">
+                                <div class="ntitle"><%= p.title %></div>
+                                <div>
+                                    <%= (p.codes.length>300)?(p.codes.substring(0,300)+"..."):p.codes %>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                       </div>
+                    <% }) %>
+
+                </div>
+            </div>
+            <div class="rightbox">
+                <div>namename</div>
+            </div>
+            <div class="clear"></div>
+            <script type="text/javascript">
+
+            </script>
 
         </div>
     </body>
