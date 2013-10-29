@@ -1,7 +1,13 @@
 var Note = require('../model/note');
 module.exports = function(app){
     app.get('/',function(req,res){
-        res.render('index',{});
+        var p = req.param('p');
+        var page = parseInt(p);
+        Note.getTen(page,function(err,docs){
+            res.render('index',{
+                docs:docs
+            });
+        });
     });
     app.get('/getten',function(req,res){
         var p=req.param('p');

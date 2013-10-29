@@ -112,7 +112,7 @@ Note.getTen = function(page,callback){
             .toArray(function(err,docs){
                     console.log('get ten occure error:');
                     console.log(err);
-                console.log(docs);
+                //console.log(docs);
                 mongodb.close();
                 if(err){
                     return callback(err);

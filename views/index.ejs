@@ -30,6 +30,20 @@
                     </div>
                 </div>
                 <div id="notelist">
+                    <% docs.forEach(function(p,index){ %>
+                        <div class="note">
+                            <div class="noteleft">
+                                <div class="userinfo"><img src="/images/avatar/bubbles2.png" /></div>
+                            </div>
+                            <div class="noteright">
+                                <div class="ntitle"><%= p.title %></div>
+                                <div>
+                                    <%= (p.codes.length>300)?(p.codes.substring(0,300)+"..."):p.codes %>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                       </div>
+                    <% }) %>
 
                 </div>
             </div>

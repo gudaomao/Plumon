@@ -1,24 +1,11 @@
 $(function(){
-    $.get('/getten',{p:0},function(data,text){
-        console.log(data);
-        if(data.msg){
-            alert(data.msg);
-        }
-        else{
-            var h = "";
-            data.docs.forEach(function(doc,index){
-                console.log(doc);
-                h+=format(doc);
-            });
-            $("#notelist").html(h);
-        }
-    });
     $("#btnsave").click('click',function(){
         var title = $("#tbtitle").val();
         var codes = $("#tbcontent").val();
         $.post('/save',{title:title,codes:codes},function(data,text){
             if(data){
-                alert(data);
+                //alert(data);
+                window.location.reload();
             }
             else{
                 loadlast();
