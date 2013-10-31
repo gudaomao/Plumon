@@ -2,7 +2,9 @@ $(function(){
     $("#btnsave").click('click',function(){
         var title = $("#tbtitle").val();
         var codes = $("#tbcontent").val();
-        $.post('/save',{title:title,codes:codes},function(data,text){
+        var tags = $("#tags").tagsinput('items');
+        console.log(tags);
+        $.post('/save',{title:title,codes:codes,tags:tags},function(data,text){
             if(data){
                 //alert(data);
                 window.location.reload();
@@ -33,7 +35,6 @@ function loadlast()
     $.get('/getone',function(data,text){
         if(data){
             if(data.errmsg){
-                alert(data.errmsg);
             }
             else{
                 $("#notelist").html("<div>"+data.doc.title+"</div><div>"+data,doc.codes+"</div>");

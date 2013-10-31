@@ -4,14 +4,29 @@ body{font-size:9pt;  background-color:#2a6496;}
 .right{text-align:right;}
 
 .mycontainer{width:960px;margin-top:50px; margin-left:auto;margin-right:auto; background-color:#fff;}
-.leftbox{float:left;border-right:1px solid #ccc; width:600px;}
-.rightbox{float:left;border-left:1px solid #fff;background-color:#cccccc; width:360px;}
-.newnotebox{width:540px; margin-left:auto;margin-right:auto; display:none;}
+/* top */
+#topnav {width:960px;margin:auto;}
+#topnav ul{}
+/* index */
+.leftbox{float:left;border-right:1px solid #ccc; width:700px;}
+.rightbox{float:left;border-left:1px solid #fff;background-color:#cccccc; width:260px;}
+.newnotebox{width:640px; margin-left:auto;margin-right:auto; display:none;}
 .newnotebuttonrow{text-align: right; margin:8px 30px 8px auto;}
-#tbtitle,#tbcontent{text-align: left; width:540px; border-radius: 4px; padding:8px; margin:5px 0px; border:1px solid #ccc;}
+#tbtitle,#tbcontent{text-align: left; width:640px; border-radius: 4px; padding:8px; margin:5px 0px; border:1px solid #ccc;}
+#tags{width:540px;}
 .note {margin-bottom:10px; padding-bottom:10px; border-bottom:1px dotted #ccc;}
 .noteleft{float:left;width:80px;margin-left:auto; margin-right:auto;}
-.noteright{float:left; width:500px;}
+.noteright{float:left; width:600px;}
 .userinfo{margin-left:auto;margin-right:auto;width:48px;}
 .userinfo img{width:48px;height:48px;}
 .ntitle{font-size:14px; font-weight:bold;}
+.ncodes{margin-bottom: 5px;}
+.ninfo{text-align: right;}
+.ninfo span{display: inline-block; margin-left:20px;}
+/* note */
+pre{padding:20px 40px;}
+.titlebox{padding:20px 20px; text-align: center; margin:auto;}
+.titlerow{font-size: 18px; font-weight:bold; margin-bottom: 15px;}
+.inforow{ font-size:9pt; }
+.inforow span{display: inline-block; margin:auto 10px;}
+.sharerow{text-align: right;padding-right:20px;}

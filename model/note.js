@@ -1,8 +1,9 @@
 var mongodb = require('./db');
 module.exports = Note;
-function Note(title,codes){
+function Note(title,codes,tags){
     this.title = title;
     this.codes = codes;
+    this.tags = tags;
 }
 
 Note.prototype.save = function(callback){
@@ -10,6 +11,8 @@ Note.prototype.save = function(callback){
     var note = {
         title:this.title,
         codes:this.codes,
+        tags:this.tags,
+        pv:0,
         time: new Date().getTime(),
         user:'LLS'
     };
@@ -57,6 +60,13 @@ Note.get = function(title,callback){
                     return callback(err);
                 }
                 return callback(null,doc);
+            });
+            collection.update({
+                title:title
+            },{
+                $inc:{pv:1}
+            },{
+                upsert:true
             });
         });
     });
@@ -108,7 +118,10 @@ Note.getTen = function(page,callback){
                 return callback(err);
             }
             console.log('finding');
-            collection.find({})
+            collection.find({},{
+                limit:20,
+                sort:[['time',-1]]
+            })
             .toArray(function(err,docs){
                     console.log('get ten occure error:');
                     console.log(err);

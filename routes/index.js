@@ -27,7 +27,10 @@ module.exports = function(app){
         });
     });
     app.post('/save',function(req,res){
-        var note = new Note(req.param('title'),req.param('codes'));
+        var title = req.param('title');
+        var codes = req.param('codes');
+        var tags = req.param('tags');
+        var note = new Note(title,codes,tags);
         console.log('route-title:'+note.title);
         console.log('route-content:'+note.codes);
         note.save(function(err){
@@ -35,6 +38,17 @@ module.exports = function(app){
                 res.send(err);
             }
             res.send('');
+        });
+    });
+    app.get('/note/:title',function(req,res){
+        console.log('/note/title'+req.params.title);
+        var title = req.params.title;
+        Note.get(title,function(err,doc){
+            console.log(doc);
+            res.render('note',{
+                note:doc,
+                err:err
+            });
         })
     })
 }

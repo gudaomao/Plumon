@@ -1,11 +1,53 @@
 <html lang="en">
     <head>
         <title>我的代码段</title>
-        <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
-        <script src="/javascripts/jquery.1.10.js" ></script>
+        <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
 
     </head>
     <body>
-
+        <%- include top.ejs %>
+        <div class="mycontainer">
+            <div class="titlebox">
+                <div class="titlerow"><%= note.title %></div>
+                <% var d=note.time;
+                var date = new Date(d);
+                var dt = date.getFullYear()+"-";
+                dt += (date.getMonth()+1)+"-";
+                dt += date.getDate()+""; %>
+                <div class="inforow"><span class="author">作者：<a href="#"><%= note.user %></a></span> <span class="date">发表日期：<%= dt %></span></div>
+            </div>
+            <div class="sharerow">
+                <script type="text/javascript">
+                    (function(){
+                        var p = {
+                            url:location.href,
+                            showcount:'1',/*是否显示分享总数,显示：'1'，不显示：'0' */
+                            desc:'',/*默认分享理由(可选)*/
+                            summary:'',/*分享摘要(可选)*/
+                            title:'',/*分享标题(可选)*/
+                            site:'',/*分享来源 如：腾讯网(可选)*/
+                            pics:'', /*分享图片的路径(可选)*/
+                            style:'101',
+                            width:199,
+                            height:30
+                        };
+                        var s = [];
+                        for(var i in p){
+                            s.push(i + '=' + encodeURIComponent(p[i]||''));
+                        }
+                        document.write(['<a version="1.0" class="qzOpenerDiv" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?',s.join('&'),'" target="_blank">分享</a>'].join(''));
+                    })();
+                </script>
+                <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
+            </div>
+            <div>
+                <pre>
+                    <%= note.codes %>
+                </pre>
+            </div>
+        </div>
     </body>
 </html>
