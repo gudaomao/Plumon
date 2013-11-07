@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <title>我的代码段</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
+    <script type="text/javascript" src="/javascripts/reg.js"></script>
+
+</head>
+<body>
+<%- include top.ejs %>
+<div class="mycontainer">
+    <div>
+        <label>用户名：</label>
+        <input type="text" id="tbusername" />
+        <label>Password:</label>
+        <input type="password" id="tbpassword" />
+        <label>Password Again:</label>
+        <input type="password" id="tbpasswordagain" />
+        <div><input type="button" id="btnreg" value="注册" /></div>
+        <div><span id="lbmsg"></span></div>
+    </div>
+</div>
+</body>
+</html>

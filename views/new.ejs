@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap-tagsinput.css" />
+    <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="/javascripts/n.js"></script>
+</head>
+<body>
+    <div class="mycontainer">
+        <%- include top.ejs %>
+        <div class="leftbox">
+            <div class="newnotebox">
+                <div class="center">
+                    <input type="text" id="tbtitle" placeholder="输入代码段的标题" /></div>
+                <div class="center">
+                    <textarea id="tbcontent" placeholder="输入代码段的内容" rows="10"></textarea>
+                </div>
+                <div>
+                    <input type="input" id="tags" data-role="tagsinput" />
+                </div>
+                <div class="right">
+                    <input type="submit" value="提交"id="btnsave" class="btn btn-success" />
+                    <button id="btncancel" class="btn btn-info">取消</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="rightbox">
+        </div>
+        <div class="clear"></div>
+        <%- include bottom.ejs %>
+    </div>
+</body>
+</html>

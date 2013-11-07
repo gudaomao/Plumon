@@ -2,23 +2,17 @@
     <head>
         <title>我的代码段</title>
         <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+        <link rel="stylesheet" href="/stylesheets/bootstrap-tagsinput.css" />
         <link rel="stylesheet" href="/stylesheets/style.css" />
         <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
         <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+        <script type="text/javascript" src="/javascripts/bootstrap-tagsinput.js"></script>
 
     </head>
     <body>
         <%- include top.ejs %>
         <div class="mycontainer">
-            <div class="titlebox">
-                <div class="titlerow"><%= note.title %></div>
-                <% var d=note.time;
-                var date = new Date(d);
-                var dt = date.getFullYear()+"-";
-                dt += (date.getMonth()+1)+"-";
-                dt += date.getDate()+""; %>
-                <div class="inforow"><span class="author">作者：<a href="#"><%= note.user %></a></span> <span class="date">发表日期：<%= dt %></span></div>
-            </div>
+
             <div class="sharerow">
                 <script type="text/javascript">
                     (function(){
@@ -43,9 +37,31 @@
                 </script>
                 <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
             </div>
-            <div>
-                <pre>
-                    <%= note.codes %>
+            <div class="titlebox">
+                <div class="titlerow"><%= note.title %></div>
+                <% var d=note.time;
+                var date = new Date(d);
+                var dt = date.getFullYear()+"-";
+                dt += (date.getMonth()+1)+"-";
+                dt += date.getDate()+""; %>
+                <div class="inforow"><span class="author">作者：<a href="#"><%= note.user %></a></span> <span class="date">发表日期：<%= dt %></span></div>
+            </div>
+            <div class="tagsrow">
+                <span>标签： </span>
+                <% for(var t in note.tags){ %>
+                <span class="label label-primary"><%= note.tags[t] %></span>
+                <% } %>
+            </div>
+            <div class="flowrow">
+                <% if(note.source.source){ %>
+                <span>转载自：</span><a href="/note/<%= note.source.title %>"><%= note.source.user %></a>
+                <% } %>
+                <% if(note.source.user!= user){ %>
+
+                <% } %>
+            </div>
+            <div class="codesrow">
+                <pre><%= note.codes %>
                 </pre>
             </div>
         </div>

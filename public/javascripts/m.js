@@ -1,27 +1,21 @@
 $(function(){
-    $("#btnsave").click('click',function(){
-        var title = $("#tbtitle").val();
-        var codes = $("#tbcontent").val();
-        var tags = $("#tags").tagsinput('items');
-        console.log(tags);
-        $.post('/save',{title:title,codes:codes,tags:tags},function(data,text){
+    loadlast();
+    if(window.location.href.indexOf("#newnote")>-1){
+        newnote();
+    }
+    $("#btnlogin").click(function(){
+        var name = $("#username").val();
+        var pwd  = $("#password").val();
+        $.post('/login',{name:name,pwd:pwd},function(data,text){
+            console.log(data);
             if(data){
-                //alert(data);
-                window.location.reload();
+                //$("#lbmsg").text(data);
+                window.location.href='/login';
             }
             else{
-                loadlast();
+                window.location.href = "/";
             }
         });
-    });
-    $("#newplumon").click(function(){
-        $(".newnotebox").show('fast');
-        $("#tbcontent")[0].focus();
-        $(this).hide();
-    });
-    $("#btncancel").click(function(){
-        $(".newnotebox").hide();
-        $("#newplumon").show();
     })
 });
 

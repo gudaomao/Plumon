@@ -1,9 +1,10 @@
 var mongodb = require('./db');
 module.exports = Note;
-function Note(title,codes,tags){
+function Note(title,codes,tags,source){
     this.title = title;
     this.codes = codes;
     this.tags = tags;
+    this.source =source;
 }
 
 Note.prototype.save = function(callback){
@@ -14,6 +15,7 @@ Note.prototype.save = function(callback){
         tags:this.tags,
         pv:0,
         time: new Date().getTime(),
+        source: this.source,
         user:'LLS'
     };
     mongodb.open(function(err,db){
@@ -155,6 +157,33 @@ Note.remove = function(title,callback){
                 }
                 return callback(null);
             });
+        });
+    });
+}
+Note.tagit = function(tags,callback){
+    console.log('model author tag start. ');
+    console.log(tags);
+    mongodb.open(function(err,db){
+        if(err){
+            callback(err);
+        }
+        db.collection('tags',function(err,collection){
+            if(err){
+                mongodb.close();
+                return callback(err)
+            }
+            tags.forEach(function(tag,index){
+                if(tag){
+                collection.update({
+                    tag:tag
+                },{
+                    "$inc":{"pv":1}
+                },{
+                    "upsert":true
+                });
+                }
+            });
+            mongodb.close();
         });
     });
 }

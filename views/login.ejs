@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <title>login system</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script type="text/javascript" src="/javascripts/login.js"></script>
+</head>
+<body>
+<div class="mycontainer">
+    <%- include top.ejs %>
+    <div>
+        <div><label>用户名：</label></div>
+        <div><input type="text" id="username" placeholder="请输入用户名" value="LLS" /></div>
+        <div><label>密码：</label></div>
+        <div><input type="text" id="password" value="123" /></div>
+        <div>
+            <div><input type="button"id="btnlogin" class="btn-success" value="Login" /> </div>
+            <div><span id="lbmsg"></span></div>
+        </div>
+    </div>
+    <%- include bottom.ejs %>
+</div>
+</body>
+</html>

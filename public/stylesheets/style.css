@@ -2,31 +2,46 @@ body{font-size:9pt;  background-color:#2a6496;}
 .clear{clear:both;}
 .center{text-align:center;}
 .right{text-align:right;}
-
+label{display:block;}
 .mycontainer{width:960px;margin-top:50px; margin-left:auto;margin-right:auto; background-color:#fff;}
 /* top */
 #topnav {width:960px;margin:auto;}
 #topnav ul{}
 /* index */
 .leftbox{float:left;border-right:1px solid #ccc; width:700px;}
-.rightbox{float:left;border-left:1px solid #fff;background-color:#cccccc; width:260px;}
-.newnotebox{width:640px; margin-left:auto;margin-right:auto; display:none;}
-.newnotebuttonrow{text-align: right; margin:8px 30px 8px auto;}
+.rightbox{float:left;border-left:1px solid #fff;background-color:fbfbfb; width:260px;padding:20px 10px;}
+
 #tbtitle,#tbcontent{text-align: left; width:640px; border-radius: 4px; padding:8px; margin:5px 0px; border:1px solid #ccc;}
-#tags{width:540px;}
-.note {margin-bottom:10px; padding-bottom:10px; border-bottom:1px dotted #ccc;}
+.note {padding:10px 0px; border-bottom:1px dotted #ccc;}
 .noteleft{float:left;width:80px;margin-left:auto; margin-right:auto;}
 .noteright{float:left; width:600px;}
 .userinfo{margin-left:auto;margin-right:auto;width:48px;}
 .userinfo img{width:48px;height:48px;}
-.ntitle{font-size:14px; font-weight:bold;}
+.ntitle{font-size:14px; font-weight:bold;text-shadow: rgba(50,50,50,.3) 1px 1px 3px;}
 .ncodes{margin-bottom: 5px;}
 .ninfo{text-align: right;}
 .ninfo span{display: inline-block; margin-left:20px;}
+
+.userbox{}
+.useravatarbox{text-align: center;}
+.useravatarbox img{width:128px;height:128px; border-radius: 10px; border:1px #285e8e dashed;}
+.username{font-size:16px;padding:10px auto;}
+
+/* newnote */
+.newnotebox{width:640px; margin-left:auto;margin-right:auto; }
+.newnotebuttonrow{text-align: right; margin:8px 30px 8px auto;}
+#tags{width:540px;}
 /* note */
 pre{padding:20px 40px;}
-.titlebox{padding:20px 20px; text-align: center; margin:auto;}
+.titlebox{padding:0px 20px; text-align: center; margin:auto;}
 .titlerow{font-size: 18px; font-weight:bold; margin-bottom: 15px;}
 .inforow{ font-size:9pt; }
-.inforow span{display: inline-block; margin:auto 10px;}
-.sharerow{text-align: right;padding-right:20px;}
+.inforow span{display: inline-block; padding:0px 10px; }
+.sharerow{text-align: right; padding-top:10px;}
+.tagsrow{padding:10px 20px; }
+.codesrow{padding:0px 20px 20px 20px;}
+
+/* footer */
+.footer{padding:20px 20px; border-top:1px solid #ccc; margin-top:20px;}
+.footrow{margin:0px auto; text-align: center;}
+.footrow span{padding:0px 10px;}

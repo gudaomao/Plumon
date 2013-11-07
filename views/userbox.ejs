@@ -1,0 +1,20 @@
+<% if(u){%>
+<div class="userbox">
+    <div class="useravatarbox">
+        <img src="/images<%= u.avatar %>" />
+        <div class="username">
+            <span><%= u.name %></span>
+        </div>
+    </div>
+</div>
+<% }else{%>
+<div>
+    <label>用户名：</label>
+    <input type="text" id="username" />
+    <label>密码：</label>
+    <input type="password" id="password" />
+    <div>
+        <input type="button" value="登录" id="btnlogin" />
+    </div>
+</div>
+<% } %>
