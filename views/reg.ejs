@@ -10,16 +10,26 @@
 <body>
 <%- include top.ejs %>
 <div class="mycontainer">
-    <div>
-        <label>用户名：</label>
-        <input type="text" id="tbusername" />
-        <label>Password:</label>
-        <input type="password" id="tbpassword" />
-        <label>Password Again:</label>
-        <input type="password" id="tbpasswordagain" />
-        <div><input type="button" id="btnreg" value="注册" /></div>
+    <div class="left regbox">
+        <label class="userlb">用户名：</label>
+        <input type="text" id="tbusername" class="userpwdinput" />
+        <label class="userlb">Password:</label>
+        <input type="password" id="tbpassword" class="userpwdinput" />
+        <label class="userlb">Password Again:</label>
+        <input type="password" id="tbpasswordagain" class="userpwdinput" />
+        <div class="userbutton"><input type="button" id="btnreg" value="注册" class="btn btn-sm btn-success" /></div>
         <div><span id="lbmsg"></span></div>
     </div>
+    <div class="left reginfo">
+        <h4>为什么要注册？</h4>
+        <ul>
+            <li>建立自己私有的代码库</li>
+            <li>与更多的程序员交流</li>
+            <li>和别人分享使用心得</li>
+            <li>随时最新更新消息</li>
+        </ul>
+    </div>
+    <div class="clear"></div>
 </div>
 </body>
 </html>

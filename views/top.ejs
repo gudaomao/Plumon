@@ -5,10 +5,13 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">首页</a></li>
-                <li><a href="/new">新建代码段</a></li>
+                <li<% if(path && path=='/'){%> class="active"<%} %>><a href="/">首页</a></li>
+                <li<% if(path && path=='/new'){%> class="active"<%} %>><a href="/new">新建代码段</a></li>
+                <% if(u && u.name){%><li<% if(path && path=='/my'){%> class="active"<%} %>><a href="/my">我的</a></li><%}%>
+                <% if(path && path=='/tag/'){%><li class="active"><a href="#">标签</a></li><%}%>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li<% if(path && path=='/reg'){%> class="active"<%} %>><a href="/reg">注册</a></li>
                 <li>
                     <form class="navbar-form" role="search">
                         <div class="form-group">

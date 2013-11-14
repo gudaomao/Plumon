@@ -1,8 +1,4 @@
 $(function(){
-    loadlast();
-    if(window.location.href.indexOf("#newnote")>-1){
-        newnote();
-    }
     $("#btnlogin").click(function(){
         var name = $("#username").val();
         var pwd  = $("#password").val();
@@ -16,7 +12,8 @@ $(function(){
                 window.location.href = "/";
             }
         });
-    })
+    });
+    getTags();
 });
 
 function format(doc){
@@ -24,15 +21,16 @@ function format(doc){
     h+='<div>'+doc.codes+'</div>';
     return h;
 }
-function loadlast()
+
+function getTags()
 {
-    $.get('/getone',function(data,text){
+    $.get('/hottags',{},function(data,status){
         if(data){
-            if(data.errmsg){
-            }
-            else{
-                $("#notelist").html("<div>"+data.doc.title+"</div><div>"+data,doc.codes+"</div>");
-            }
+            var h = "";
+            data.forEach(function(tag,index){
+                h+="<span class='t'><a href='/tag/"+tag.tag+"'>"+tag.tag+"</a></span>";
+            });
+            $("#hottags").html(h);
         }
-    })
+    });
 }

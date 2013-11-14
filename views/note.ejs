@@ -7,13 +7,14 @@
         <script type="text/javascript" src="/javascripts/jquery.1.10.js"></script>
         <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
         <script type="text/javascript" src="/javascripts/bootstrap-tagsinput.js"></script>
+        <script type="text/javascript" src="/javascripts/note.js" ></script>
 
     </head>
     <body>
         <%- include top.ejs %>
         <div class="mycontainer">
-
             <div class="sharerow">
+                    <span>
                 <script type="text/javascript">
                     (function(){
                         var p = {
@@ -36,34 +37,44 @@
                     })();
                 </script>
                 <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
+                </span>
             </div>
             <div class="titlebox">
-                <div class="titlerow"><%= note.title %></div>
+                <div class="titlerow titleshadow"><%= (note.source)?'[转帖]':'' %><%= note.title %></div>
                 <% var d=note.time;
                 var date = new Date(d);
                 var dt = date.getFullYear()+"-";
                 dt += (date.getMonth()+1)+"-";
-                dt += date.getDate()+""; %>
-                <div class="inforow"><span class="author">作者：<a href="#"><%= note.user %></a></span> <span class="date">发表日期：<%= dt %></span></div>
+                dt += date.getDate()+" ";
+                dt+= date.getHours()+":";
+                dt+=date.getMinutes()+":";
+                dt+=date.getSeconds()+""; %>
+                <div class="inforow">
+                    <span class="author">作者：<a href="/user/<%= note.user %>"><%= note.user %></a></span>
+                    <span class="date">发表日期：<%= dt %></span>
+                    <% if(note.source && note.source.id){ %><span>转载自：</span><a href="/note/<%= note.source.id %>"><%= note.source.user %></a><% } %>
+                </div>
+            </div>
+            <div class="funcrow">
+                <% if(u && u.name && note.user != u.name){%><span id="zz" class="funcbutton">我要转帖！</span><%}%>
+                <% if(u && u.name && note.user == u.name){%><span id="del" class="funcbutton">删除</span><%}%>
             </div>
             <div class="tagsrow">
                 <span>标签： </span>
                 <% for(var t in note.tags){ %>
-                <span class="label label-primary"><%= note.tags[t] %></span>
+                <span class="label label-primary"><a href="/tag/<%= t %>" class="tag"><%= note.tags[t] %></a></span>
                 <% } %>
             </div>
             <div class="flowrow">
-                <% if(note.source.source){ %>
-                <span>转载自：</span><a href="/note/<%= note.source.title %>"><%= note.source.user %></a>
-                <% } %>
-                <% if(note.source.user!= user){ %>
-
-                <% } %>
             </div>
             <div class="codesrow">
                 <pre><%= note.codes %>
                 </pre>
             </div>
         </div>
+    <div class="hidden">
+        <input type="text" id="hdid" value="<%= note._id %>" />
+        <input type="text" id="hduser" value="<%= (u && u.name)?(u.name):'' %>"
+    </div>
     </body>
 </html>

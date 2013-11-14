@@ -1,5 +1,9 @@
 module.exports = {
     cookieSecret: 'plumon',
     db: 'plumon',
-    host: 'localhost'
+    host: 'localhost',
+    port: 27017,
+    'notetable': 'notes',
+    'codertable': 'users',
+    'tagtable':'tags'
 };

@@ -1,20 +1,22 @@
 <% if(u){%>
-<div class="userbox">
+<div class="infobox">
+    <div class="infoboxtitle">用户信息</div>
     <div class="useravatarbox">
-        <img src="/images<%= u.avatar %>" />
+        <a href="/my"><img src="/images/avatar/<%= u.name %>.png" /></a>
         <div class="username">
             <span><%= u.name %></span>
         </div>
     </div>
 </div>
 <% }else{%>
-<div>
-    <label>用户名：</label>
-    <input type="text" id="username" />
-    <label>密码：</label>
-    <input type="password" id="password" />
-    <div>
-        <input type="button" value="登录" id="btnlogin" />
+<div class="infobox">
+    <div class="infoboxtitle">用户登录</div>
+    <label class="userlb">用户名：</label>
+    <input type="text" id="username" class="userpwdinput" />
+    <label class="userlb">密码：</label>
+    <input type="password" id="password" class="userpwdinput" />
+    <div class="userbutton">
+        <input type="button" value="登录" id="btnlogin" class="btn btn-sm btn-success" />
     </div>
 </div>
 <% } %>

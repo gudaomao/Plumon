@@ -10,16 +10,18 @@
 <body>
 <div class="mycontainer">
     <%- include top.ejs %>
-    <div>
-        <div><label>用户名：</label></div>
-        <div><input type="text" id="username" placeholder="请输入用户名" value="LLS" /></div>
-        <div><label>密码：</label></div>
-        <div><input type="text" id="password" value="123" /></div>
+    <div class="left regbox">
+        <div class="userlb"><label>用户名：</label></div>
+        <div><input type="text" id="username" placeholder="请输入用户名" value="LLS" class="userpwdinput" /></div>
+        <div class="userlb"><label>密码：</label></div>
+        <div><input type="text" id="password" value="123" class="userpwdinput" /></div>
         <div>
-            <div><input type="button"id="btnlogin" class="btn-success" value="Login" /> </div>
+            <div class="userbutton"><input type="button"id="btnlogin" class="btn btn-sm btn-success" value="Login" /> </div>
             <div><span id="lbmsg"></span></div>
         </div>
     </div>
+    <div class="left reginfo"></div>
+    <div class="clear"></div>
     <%- include bottom.ejs %>
 </div>
 </body>

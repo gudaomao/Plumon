@@ -1,0 +1,18 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/stylesheets/upfiles.css" />
+</head>
+<body>
+<div class="mycontainer">
+    <div id="gallary">
+        <% if(imgs){imgs.forEach(function(img,index){%>
+        <div class="float">
+            <img src="/img/<%= img %>" />
+        </div>
+        <%})}%>
+        <div class="clear"></div>
+    </div>
+
+</div>
+</body>
+</html>

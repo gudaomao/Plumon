@@ -13,17 +13,17 @@
         <div class="mycontainer">
             <%- include top.ejs %>
             <div class="leftbox">
-                <!--<div class="newnotebuttonrow">-->
-                    <!--<button class="btn-info btn-sm" id="newnote">新的Plumon!</button>-->
-                <!--</div>-->
+                <% if(title){%>
+                <h1><%= title %></h1>
+                <%}%>
                 <div id="notelist">
                     <% docs.forEach(function(p,index){ %>
                         <div class="note">
                             <div class="noteleft">
-                                <div class="userinfo"><img src="/images/avatar/bubbles.png" /></div>
+                                <div class="userinfo"><img src="/images/avatar/<%= p.user %>.png" /></div>
                             </div>
                             <div class="noteright">
-                                <div class="ntitle"><a href="/note/<%= p.title %>"><%= p.title %></a></div>
+                                <div class="ntitle titleshadow"><a href="/user/<%= p.user %>"><%= p.user %></a> : <a href="/note/<%= p._id %>"><%= (p.source && p.source.id)?'[转帖]':''%><%= p.title %></a></div>
                                 <div class="ncodes">
                                     <%= (p.codes.length>300)?(p.codes.substring(0,300)+"..."):p.codes %>
                                 </div>
@@ -31,7 +31,7 @@
                                 <div class="ntags">
                                     <span>标签：</span>
                                     <% p.tags.forEach(function(t,index){ %>
-                                        <a href="%"><%= t %></a>
+                                        <a href="/tag/<%= t %>"><%= t %></a>
                                      <% }) %>
                                 </div>
                                 <% } %>
@@ -48,6 +48,10 @@
             </div>
             <div class="rightbox">
                 <%- include userbox.ejs %>
+                <div class="infobox">
+                    <div class="infoboxtitle">热点标签</div>
+                    <div id="hottags"></div>
+                </div>
             </div>
             <div class="clear"></div>
             <%- include bottom.ejs %>

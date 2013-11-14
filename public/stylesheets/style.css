@@ -1,36 +1,45 @@
 body{font-size:9pt;  background-color:#2a6496;}
+label{display:block;}
+h1{text-align: center;font-weight: bold; color:#2A6496; font-size:24px;}
+h4{margin:10px auto;}
+.left{float:left;}
 .clear{clear:both;}
 .center{text-align:center;}
 .right{text-align:right;}
-label{display:block;}
+.titleshadow{text-shadow: rgba(50,50,50,.3) 1px 1px 3px;}
 .mycontainer{width:960px;margin-top:50px; margin-left:auto;margin-right:auto; background-color:#fff;}
+.userpwdinput{width:200px; padding:4px 5px; border-radius: 2px; border:1px solid #ccc;}
 /* top */
 #topnav {width:960px;margin:auto;}
 #topnav ul{}
+/* rightbox */
+.infobox{border-bottom: 1px dotted #ccc;padding:20px;}
+.infoboxtitle{font-size: 16px;padding-bottom:10px; color:#3071a9; font-weight: bold;}
+#hottags{width:220px;}
+.t{display:inline-block;padding:2px 18px; border:1px solid #ccc; margin:3px 10px 3px 0px; background-color: #fff;}
 /* index */
 .leftbox{float:left;border-right:1px solid #ccc; width:700px;}
-.rightbox{float:left;border-left:1px solid #fff;background-color:fbfbfb; width:260px;padding:20px 10px;}
+.rightbox{float:left;border-left:1px solid #fff;background-color:fbfbfb; width:260px;}
 
-#tbtitle,#tbcontent{text-align: left; width:640px; border-radius: 4px; padding:8px; margin:5px 0px; border:1px solid #ccc;}
+#tbtitle,#tbcontent, #tbabs{text-align: left; width:640px; border-radius: 4px; padding:8px; margin:5px 0px; border:1px solid #ccc;}
 .note {padding:10px 0px; border-bottom:1px dotted #ccc;}
 .noteleft{float:left;width:80px;margin-left:auto; margin-right:auto;}
 .noteright{float:left; width:600px;}
 .userinfo{margin-left:auto;margin-right:auto;width:48px;}
 .userinfo img{width:48px;height:48px;}
-.ntitle{font-size:14px; font-weight:bold;text-shadow: rgba(50,50,50,.3) 1px 1px 3px;}
+.ntitle{font-size:14px; font-weight:bold;}
 .ncodes{margin-bottom: 5px;}
 .ninfo{text-align: right;}
 .ninfo span{display: inline-block; margin-left:20px;}
 
-.userbox{}
-.useravatarbox{text-align: center;}
-.useravatarbox img{width:128px;height:128px; border-radius: 10px; border:1px #285e8e dashed;}
-.username{font-size:16px;padding:10px auto;}
+
 
 /* newnote */
 .newnotebox{width:640px; margin-left:auto;margin-right:auto; }
 .newnotebuttonrow{text-align: right; margin:8px 30px 8px auto;}
 #tags{width:540px;}
+input[type="file"]{display: inline-block;}
+#uploaded_file{border:none; height:150px; width:100%;}
 /* note */
 pre{padding:20px 40px;}
 .titlebox{padding:0px 20px; text-align: center; margin:auto;}
@@ -39,8 +48,20 @@ pre{padding:20px 40px;}
 .inforow span{display: inline-block; padding:0px 10px; }
 .sharerow{text-align: right; padding-top:10px;}
 .tagsrow{padding:10px 20px; }
+.funcrow{padding:0px 20px 10px 20px;text-align: right;}
 .codesrow{padding:0px 20px 20px 20px;}
-
+.sharerow span{vertical-align: middle;}
+.funcbutton{ border:1px solid #ccc; padding:3px 10px; display: inline-block; border-radius: 3px; cursor: pointer; color:#269abc;}
+.tag, a.tag {color:#fff;}
+/* user,reg */
+.regbox{ width:500px; padding:40px 100px;}
+.reginfo{width:450px; padding:40px;}
+.userbox{}
+.useravatarbox{text-align: center;}
+.useravatarbox img{width:128px;height:128px; border-radius: 10px; border:5px #99D9EA solid; padding:5px; background-color:#fff;}
+.username{font-size:16px;padding:10px auto;}
+.userbutton{margin-top:15px; margin-left:30px;}
+.userlb{display: block; margin-top:10px;}
 /* footer */
 .footer{padding:20px 20px; border-top:1px solid #ccc; margin-top:20px;}
 .footrow{margin:0px auto; text-align: center;}

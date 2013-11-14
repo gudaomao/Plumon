@@ -11,7 +11,9 @@ $(function(){
             if(data){
                 $("#lbmsg").text(data);
             }
-            window.location.href='/login';
+            else{
+                window.location.href='/login';
+            }
         });
     });
 });
